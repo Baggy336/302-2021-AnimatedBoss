@@ -401,6 +401,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 276838845, guid: 4a043b50416a05a46ae18b53f55dd29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.901
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659915010, guid: 4a043b50416a05a46ae18b53f55dd29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.498001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1784006610, guid: 4a043b50416a05a46ae18b53f55dd29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039097090, guid: 4a043b50416a05a46ae18b53f55dd29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.694
+      objectReference: {fileID: 0}
     - target: {fileID: 509749046973800195, guid: 4a043b50416a05a46ae18b53f55dd29d, type: 3}
       propertyPath: m_Name
       value: Dudaryk_Boss_Anim_Final
