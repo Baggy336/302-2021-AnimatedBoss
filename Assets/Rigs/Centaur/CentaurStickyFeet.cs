@@ -9,7 +9,7 @@ public class CentaurStickyFeet : MonoBehaviour
     /// </summary>
     public Transform stepLead;
 
-    private Vector3 currentPos;
+    public AnimationCurve tween;
 
     private Vector3 targetPos;
 
@@ -50,6 +50,8 @@ public class CentaurStickyFeet : MonoBehaviour
 
             Vector3 stepPos = AnimMath.Lerp(previousPos, targetPos, percent);
 
+            stepPos.y += tween.Evaluate(percent);
+
             transform.position = stepPos;
 
             transform.rotation = AnimMath.Lerp(previousRot, targetRot, percent);
@@ -71,7 +73,7 @@ public class CentaurStickyFeet : MonoBehaviour
         Vector3 vToTarget = transform.position - stepLead.position;
 
         // This value will determine how far away the target should be before stepping
-        float stepDis = 1.5f;
+        float stepDis = 2;
 
         if (vToTarget.sqrMagnitude < stepDis * stepDis) return false;
 
