@@ -4,102 +4,82 @@ using UnityEngine;
 
 public class CentaurStickyFeet : MonoBehaviour
 {
-    /// <summary>
-    /// This will reference an empty object which represents where the next step will be.
-    /// </summary>
-    public Transform stepLead;
-
-    public AnimationCurve tween;
+    private Vector3 startingPos;
 
     private Vector3 targetPos;
 
-    private Vector3 previousPos;
+    private Quaternion startingRot;
 
-    private Quaternion currentRot;
+    private Quaternion targetRot;
 
-    private Quaternion previousRot = Quaternion.identity;
+    public float offset;
 
-    private Quaternion targetRot = Quaternion.identity;
-
-    public bool isFootAnimating
-    {
-        get
-        {
-            return (timeCount < animLength);
-        }
-    }
-
-    private bool hasStepped = false;
-
-    private float timeCount = 0;
-
-    private float animLength = .5f;
+    CentaurController centaur;
 
     private void Start()
     {
-        currentRot = transform.localRotation;
+        startingPos = transform.localPosition;
+        startingRot = transform.localRotation;
+
+        centaur = GetComponentInParent<CentaurController>();
     }
 
     void Update()
     {
-        if (isFootAnimating)
+        switch (centaur.state)
         {
-            timeCount += Time.deltaTime;
-
-            float percent = timeCount / animLength;
-
-            Vector3 stepPos = AnimMath.Lerp(previousPos, targetPos, percent);
-
-            stepPos.y += tween.Evaluate(percent);
-
-            transform.position = stepPos;
-
-            transform.rotation = AnimMath.Lerp(previousRot, targetRot, percent);
+            case CentaurController.States.Idle:
+                Idle();
+                break;
+            case CentaurController.States.Walking:
+                DoStep();
+                break;
         }
-        else
-        {
-            transform.position = targetPos;
-            transform.rotation = targetRot;
-        }
+
+        transform.position = AnimMath.Slide(transform.position, targetPos, .001f);
+        transform.rotation = AnimMath.Slide(transform.rotation, targetRot, .001f);
     }
 
-    public bool DoAStep()
+    void DoStep()
     {
-        if (isFootAnimating) return false;
+        Vector3 stepPos = startingPos;
 
-        if (hasStepped) return false;
+        float t = (Time.deltaTime + offset) * centaur.stepAnimTime;
 
-        // Get the vector from the IK target to the step lead
-        Vector3 vToTarget = transform.position - stepLead.position;
+        float legSwing = Mathf.Sin(t);
+        stepPos += centaur.velocity * legSwing * centaur.stepScale.z;
 
-        // This value will determine how far away the target should be before stepping
-        float stepDis = 2;
+        stepPos.y += Mathf.Cos(t) * centaur.stepScale.y;
 
-        if (vToTarget.sqrMagnitude < stepDis * stepDis) return false;
+        bool isOnGround = (stepPos.y < startingPos.y);
+        if (isOnGround) stepPos.y = startingPos.y;
 
-        // Instantiate the ray into the scene.
-        Ray ray = new Ray(stepLead.position + Vector3.up, Vector3.down);
+        float percent = 1 - Mathf.Abs(legSwing);
+        float angleAngle = isOnGround ? 0 : -percent * 20;
 
-        // Draw the ray from the step target (for visualization)
-        Debug.DrawRay(ray.origin, ray.direction * 5);
+        transform.localPosition = stepPos;
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 3))
+        targetRot = transform.parent.rotation * startingRot * Quaternion.Euler(0, 0, angleAngle);
+
+        targetPos = transform.TransformPoint(stepPos);
+    }
+
+    void Idle()
+    {
+        targetPos = transform.TransformPoint(startingPos);
+        targetRot = transform.parent.rotation * startingRot;
+        DoRaycast();
+    }
+
+    void DoRaycast()
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0, .5f, 0), Vector3.down * 2);
+
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            // Setup the positions of feet
-            previousPos = transform.position;
-            currentRot = transform.rotation;
-
-            transform.localRotation = previousRot;
-
             targetPos = hit.point;
+
             targetRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
-
-            timeCount = 0;
-
-            hasStepped = true;
-
-            return true;
         }
-        return false;
     }
 }
