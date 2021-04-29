@@ -12,11 +12,11 @@ public class CentaurFeet : MonoBehaviour
 
     private Vector3 targetPos;
 
-    private float animLength;
+    public float animLength = 4;
 
     private float animTimer;
 
-    private float stepDistance = 3;
+    private float stepDistance = 1.5f;
 
     private void Start()
     {

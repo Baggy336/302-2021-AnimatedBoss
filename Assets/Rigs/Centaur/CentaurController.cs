@@ -18,7 +18,7 @@ public class CentaurController : MonoBehaviour
 
     private void Start()
     {
-
+        groundTargets.localPosition = new Vector3(0, -.5f, 0);
 
         pawn = GetComponent<CharacterController>();
     }
