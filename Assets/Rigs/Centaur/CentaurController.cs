@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CentaurController : MonoBehaviour
 {
-    public enum States
-    {
-        Idle,
-        Walking,
-        Attack,
-        Death
-    }
-
     private CharacterController pawn;
+
+    public Transform groundTargets;
 
     public float moveSpeed = 3;
 
@@ -22,11 +16,9 @@ public class CentaurController : MonoBehaviour
 
     public Vector3 stepScale = Vector3.one;
 
-    public States state { get; private set; }
-
     private void Start()
     {
-        state = States.Idle;
+
 
         pawn = GetComponent<CharacterController>();
     }
@@ -47,6 +39,8 @@ public class CentaurController : MonoBehaviour
 
         transform.Rotate(0, h * 90 * Time.deltaTime, 0);
 
-        state = (velocity.sqrMagnitude > .1f) ? States.Walking : States.Idle;
+        Vector3 localVelocity = groundTargets.InverseTransformDirection(velocity);
+
+        groundTargets.localPosition = AnimMath.Slide(groundTargets.localPosition, localVelocity, .001f);
     }
 }

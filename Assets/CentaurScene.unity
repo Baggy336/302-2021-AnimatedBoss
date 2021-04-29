@@ -401,6 +401,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 33140180, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 328182384, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.392
+      objectReference: {fileID: 0}
+    - target: {fileID: 935165318, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_Effectors.Array.data[14].m_Style.size
+      value: 3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403626202, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.406
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538276862, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.396
+      objectReference: {fileID: 0}
     - target: {fileID: 1696229706453959257, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: m_Name
       value: Dudaryk_Boss_Anim_Final3
@@ -448,6 +468,10 @@ PrefabInstance:
     - target: {fileID: 2072191577645062371, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740387184946146779, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.298
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}

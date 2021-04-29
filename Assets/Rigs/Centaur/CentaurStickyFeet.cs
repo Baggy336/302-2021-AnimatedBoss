@@ -26,16 +26,6 @@ public class CentaurStickyFeet : MonoBehaviour
 
     void Update()
     {
-        switch (centaur.state)
-        {
-            case CentaurController.States.Idle:
-                Idle();
-                break;
-            case CentaurController.States.Walking:
-                DoStep();
-                break;
-        }
-
         transform.position = AnimMath.Slide(transform.position, targetPos, .001f);
         transform.rotation = AnimMath.Slide(transform.rotation, targetRot, .001f);
     }
@@ -73,7 +63,9 @@ public class CentaurStickyFeet : MonoBehaviour
 
     void DoRaycast()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0, .5f, 0), Vector3.down * 2);
+        Ray ray = new Ray(transform.position + new Vector3(0, .25f, 0), Vector3.down);
+
+        Debug.DrawRay(ray.origin, ray.direction * 3);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {

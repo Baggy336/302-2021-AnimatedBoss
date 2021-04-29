@@ -541,6 +541,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6236954643929136231, guid: 29f0527788b3891408c3e7b43b39e921, type: 3}
+      propertyPath: m_SettingsGUIToggle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6507548517649851223, guid: 29f0527788b3891408c3e7b43b39e921, type: 3}
       propertyPath: m_Name
       value: Goon
