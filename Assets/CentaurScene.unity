@@ -466,10 +466,30 @@ PrefabInstance:
       propertyPath: m_Data.m_MaintainTargetRotationOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 318287596, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 564738827}
     - target: {fileID: 728065948, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 564738827}
+    - target: {fileID: 1235520377, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 564738827}
+    - target: {fileID: 1356429782, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1245966
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356429782, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.3139307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1356429782, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2019715
+      objectReference: {fileID: 0}
     - target: {fileID: 1385698912, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: player
       value: 
@@ -498,6 +518,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 564738827}
+    - target: {fileID: 2012486354, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.9762588
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012486354, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.351087
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012486354, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.169807
+      objectReference: {fileID: 0}
     - target: {fileID: 1696229706453959257, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: m_Name
       value: Dudaryk_Boss_Anim_Final3

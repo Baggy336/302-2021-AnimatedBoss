@@ -55,7 +55,14 @@ public class CentaurController : MonoBehaviour
                 public override State Update()
                 {
                     // Behavior:
+                    print(centaur.animTimer);
+                    centaur.hand.SwingAtPlayer();
+                    centaur.animTimer += Time.deltaTime;
                     // Transition:
+                    if (centaur.animTimer >= 1)
+                    {
+                        centaur.SwitchState(new States.State.Walk());
+                    }
                     return null;
                 }
             }
@@ -85,6 +92,8 @@ public class CentaurController : MonoBehaviour
 
     private CharacterController pawn;
 
+    private CentaurHandAnimator hand;
+
     private HealthSystem health;
 
     public Transform player;
@@ -99,6 +108,8 @@ public class CentaurController : MonoBehaviour
 
     private float attackDis = 5;
 
+    private float animTimer = 0;
+
     public Vector3 velocity { get; private set; }
 
     public Vector3 stepScale = Vector3.one;
@@ -107,6 +118,7 @@ public class CentaurController : MonoBehaviour
     {
         pawn = GetComponent<CharacterController>();
         health = GetComponent<HealthSystem>();
+        hand = GetComponentInChildren<CentaurHandAnimator>();
     }
 
     private void Update()
