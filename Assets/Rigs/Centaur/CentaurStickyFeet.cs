@@ -79,6 +79,7 @@ public class CentaurStickyFeet : MonoBehaviour
     public bool DoAStep()
     {
         if (isFootAnimating) return false;
+        if (footHasMoved) return false;
 
         // Get the vector from the IK target to the step lead
         Vector3 vToTarget = transform.position - stepLead.position;
@@ -101,8 +102,6 @@ public class CentaurStickyFeet : MonoBehaviour
             targetRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
 
             timeCount = 0;
-
-            footHasMoved = true;
 
             return true;
         }

@@ -23,7 +23,7 @@ public class CentaurController : MonoBehaviour
 
     private void Update()
     {
-        MoveCent();
+        //MoveCent();
 
         int currentFeetStepping = 0;
         int currentFeetMoved = 0;
