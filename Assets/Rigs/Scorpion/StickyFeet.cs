@@ -44,7 +44,7 @@ public class StickyFeet : MonoBehaviour
     }
 
     void Update()
-    {
+    { 
         if (isAnimating) // The animation is playing
         {
             timeCurrent += Time.deltaTime; // move playhead forward

@@ -123,36 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &280931353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 280931354}
-  m_Layer: 0
-  m_Name: Tail Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &280931354
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280931353}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.157, z: -2.772}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1029838097}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798607602
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,29 +216,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &874606281 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1247170716, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
-  m_PrefabInstance: {fileID: 1966769290301518142}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &874606282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874606281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebbe9b829554dd94996ff02918002d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tailTarget: {fileID: 280931354}
---- !u!4 &1029838097 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 935165319, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
-  m_PrefabInstance: {fileID: 1966769290301518142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1319581871
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1747157934, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
+      propertyPath: offset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1696229706453959257, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: m_Name
       value: Dudaryk_Boss_Anim_Final3
@@ -501,10 +452,6 @@ PrefabInstance:
     - target: {fileID: 2072191577645062371, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740387184946146779, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652aa2c3e744f484ba7da0a77a21b5e0, type: 3}

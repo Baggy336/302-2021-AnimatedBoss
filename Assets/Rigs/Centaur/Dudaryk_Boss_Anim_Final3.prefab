@@ -58,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 10
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &280931353
 GameObject:
@@ -88,7 +88,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 11
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304164546
 GameObject:
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 304164547}
   - component: {fileID: 304164548}
   - component: {fileID: 1966769290301518156}
-  - component: {fileID: 756440745}
+  - component: {fileID: 1385698912}
   m_Layer: 0
   m_Name: IK Foot FrontRight
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Transform:
   m_Children:
   - {fileID: 587894331}
   m_Father: {fileID: 935165319}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &304164548
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &756440745
+--- !u!114 &1385698912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,11 +171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 304164546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4adbde5f1913ab49b9c0f6cea433d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 221de41bdb8514f4e9a4277c78b1a253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footTarget: {fileID: 328182384}
-  stepHeight:
+  stepLead: {fileID: 328182384}
+  tween:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -189,17 +189,19 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: -0.009433746
-      inSlope: -6.5340657
-      outSlope: -6.5340657
+      value: 0.002357483
+      inSlope: -6.682267
+      outSlope: -6.682267
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03284669
+      inWeight: 0.085766435
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animLength: 4
+  offset: 0
+  animLength: 0.5
+  stepDis: 1.5
 --- !u!1 &314179337
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +230,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 9
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &328182383
 GameObject:
@@ -379,6 +381,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5740387184946146779}
+  - {fileID: 280931354}
+  - {fileID: 160111875}
+  - {fileID: 314179338}
   - {fileID: 1917054450}
   - {fileID: 304164547}
   - {fileID: 1054003369}
@@ -387,9 +392,6 @@ Transform:
   - {fileID: 1356429782}
   - {fileID: 2012486354}
   - {fileID: 1847141569}
-  - {fileID: 314179338}
-  - {fileID: 160111875}
-  - {fileID: 280931354}
   m_Father: {fileID: 2072191577645062371}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -538,7 +540,7 @@ GameObject:
   - component: {fileID: 1054003369}
   - component: {fileID: 1054003370}
   - component: {fileID: 2607279468033290910}
-  - component: {fileID: 359252560}
+  - component: {fileID: 1945105036}
   m_Layer: 0
   m_Name: IK Foot BackRight
   m_TagString: Untagged
@@ -559,7 +561,7 @@ Transform:
   m_Children:
   - {fileID: 433356480}
   m_Father: {fileID: 935165319}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1054003370
 MonoBehaviour:
@@ -599,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &359252560
+--- !u!114 &1945105036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -608,11 +610,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054003368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4adbde5f1913ab49b9c0f6cea433d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 221de41bdb8514f4e9a4277c78b1a253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footTarget: {fileID: 1538276862}
-  stepHeight:
+  stepLead: {fileID: 1538276862}
+  tween:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -626,17 +628,19 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.0047187805
-      inSlope: -6.3391213
-      outSlope: -6.3391213
+      value: -0.002357483
+      inSlope: -6.8257523
+      outSlope: -6.8257523
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.038321197
+      inWeight: 0.058394134
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animLength: 4
+  offset: 1
+  animLength: 0.5
+  stepDis: 1.5
 --- !u!1 &1224160245
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +702,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1247170718
 MonoBehaviour:
@@ -744,12 +748,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247170716}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebbe9b829554dd94996ff02918002d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tailTarget: {fileID: 280931354}
+  wiggleSpeed: 2
 --- !u!1 &1356429781
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1356429783
 MonoBehaviour:
@@ -905,7 +910,7 @@ GameObject:
   - component: {fileID: 1760421565}
   - component: {fileID: 1760421566}
   - component: {fileID: 1966769290301518154}
-  - component: {fileID: 1507827732}
+  - component: {fileID: 728065948}
   m_Layer: 0
   m_Name: IK Foot BackLeft
   m_TagString: Untagged
@@ -926,7 +931,7 @@ Transform:
   m_Children:
   - {fileID: 1224160246}
   m_Father: {fileID: 935165319}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1760421566
 MonoBehaviour:
@@ -966,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1507827732
+--- !u!114 &728065948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -975,35 +980,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1760421564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4adbde5f1913ab49b9c0f6cea433d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 221de41bdb8514f4e9a4277c78b1a253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footTarget: {fileID: 1403626202}
-  stepHeight:
+  stepLead: {fileID: 1403626202}
+  tween:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.6045344
+      outSlope: 0.6045344
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.11313868
     - serializedVersion: 3
       time: 1
-      value: 0.009433746
-      inSlope: -6.677685
-      outSlope: -6.677685
+      value: 0.002357483
+      inSlope: -6.344817
+      outSlope: -6.344817
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03284669
+      inWeight: 0.020072997
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animLength: 4
+  offset: 0
+  animLength: 0.5
+  stepDis: 1.5
 --- !u!1 &1847141568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +1040,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1966769290301518146
 MonoBehaviour:
@@ -1069,7 +1076,7 @@ GameObject:
   - component: {fileID: 1917054450}
   - component: {fileID: 1917054451}
   - component: {fileID: 1966769290301518155}
-  - component: {fileID: 358099674}
+  - component: {fileID: 1747157934}
   m_Layer: 0
   m_Name: IK Foot FrontLeft
   m_TagString: Untagged
@@ -1090,7 +1097,7 @@ Transform:
   m_Children:
   - {fileID: 475917917}
   m_Father: {fileID: 935165319}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1917054451
 MonoBehaviour:
@@ -1110,7 +1117,7 @@ MonoBehaviour:
     m_Mid: {fileID: 3012986501429205543}
     m_Tip: {fileID: 6455639699823917278}
     m_Target: {fileID: 1917054450}
-    m_Hint: {fileID: 475917917}
+    m_Hint: {fileID: 0}
     m_TargetPositionWeight: 1
     m_TargetRotationWeight: 1
     m_HintWeight: 1
@@ -1130,7 +1137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &358099674
+--- !u!114 &1747157934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1139,11 +1146,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1917054449}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4adbde5f1913ab49b9c0f6cea433d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 221de41bdb8514f4e9a4277c78b1a253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footTarget: {fileID: 33140180}
-  stepHeight:
+  stepLead: {fileID: 33140180}
+  tween:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -1156,18 +1163,20 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.9999875
-      value: -0.002357483
-      inSlope: -6.4638834
-      outSlope: -6.4638834
+      time: 1
+      value: 0.0047187805
+      inSlope: -6.532101
+      outSlope: -6.532101
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.049438626
+      inWeight: 0.067518234
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  animLength: 4
+  offset: 1
+  animLength: 0.5
+  stepDis: 1.5
 --- !u!1 &2012486353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1208,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 935165319}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2012486355
 MonoBehaviour:
@@ -1787,8 +1796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTargets: {fileID: 5740387184946146779}
-  moveSpeed: 3
-  stepAnimTime: 4
+  moveSpeed: 2
   stepScale: {x: 1, y: 1, z: 1}
 --- !u!143 &8974450720363120337
 CharacterController:
@@ -1807,7 +1815,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1935524797200159144
 GameObject:
   m_ObjectHideFlags: 0

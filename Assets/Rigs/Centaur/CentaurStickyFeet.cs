@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CentaurStickyFeet : MonoBehaviour
 {
+    public Transform stepLead;
+
+    public AnimationCurve tween;
+
     private Vector3 startingPos;
 
     private Vector3 targetPos;
@@ -14,64 +18,94 @@ public class CentaurStickyFeet : MonoBehaviour
 
     public float offset;
 
+    public float animLength = .5f;
+
+    public float stepDis = 5;
+
+    private float timeCount;
+
+    public bool footHasMoved = false;
+
+    public bool isFootAnimating
+    {
+        get
+        {
+            return (timeCount < animLength);
+        }
+    }
+
     CentaurController centaur;
 
     private void Start()
     {
-        startingPos = transform.localPosition;
+        startingPos = stepLead.position;
         startingRot = transform.localRotation;
+
+        timeCount = 4;
 
         centaur = GetComponentInParent<CentaurController>();
     }
 
     void Update()
     {
-        transform.position = AnimMath.Slide(transform.position, targetPos, .001f);
-        transform.rotation = AnimMath.Slide(transform.rotation, targetRot, .001f);
+        DoAStep();
+
+        if (isFootAnimating)
+        {
+            // Add to the animation timer
+            timeCount += Time.deltaTime;
+
+            // Determine how far along in the animation we are based on time
+            float percent = timeCount / animLength;
+
+            // Add to the position 
+            Vector3 stepPos = AnimMath.Lerp(startingPos, targetPos, percent);
+
+            // Determine the y
+            stepPos.y += tween.Evaluate(percent);
+
+            // After y has been evaluated, reset the position to the determined position
+            transform.position = stepPos;
+
+            transform.rotation = AnimMath.Lerp(startingRot, targetRot, percent);
+        }
+        else
+        {
+            transform.position = targetPos;
+            transform.rotation = targetRot;
+        }
     }
 
-    void DoStep()
+    public bool DoAStep()
     {
-        Vector3 stepPos = startingPos;
+        if (isFootAnimating) return false;
 
-        float t = (Time.deltaTime + offset) * centaur.stepAnimTime;
+        // Get the vector from the IK target to the step lead
+        Vector3 vToTarget = transform.position - stepLead.position;
 
-        float legSwing = Mathf.Sin(t);
-        stepPos += centaur.velocity * legSwing * centaur.stepScale.z;
+        if (vToTarget.sqrMagnitude < stepDis * stepDis) return false;
 
-        stepPos.y += Mathf.Cos(t) * centaur.stepScale.y;
+        // Instantiate the ray into the scene.
+        Ray ray = new Ray(stepLead.position + Vector3.up, Vector3.down);
 
-        bool isOnGround = (stepPos.y < startingPos.y);
-        if (isOnGround) stepPos.y = startingPos.y;
-
-        float percent = 1 - Mathf.Abs(legSwing);
-        float angleAngle = isOnGround ? 0 : -percent * 20;
-
-        transform.localPosition = stepPos;
-
-        targetRot = transform.parent.rotation * startingRot * Quaternion.Euler(0, 0, angleAngle);
-
-        targetPos = transform.TransformPoint(stepPos);
-    }
-
-    void Idle()
-    {
-        targetPos = transform.TransformPoint(startingPos);
-        targetRot = transform.parent.rotation * startingRot;
-        DoRaycast();
-    }
-
-    void DoRaycast()
-    {
-        Ray ray = new Ray(transform.position + new Vector3(0, .25f, 0), Vector3.down);
-
+        // Draw the ray from the step target (for visualization)
         Debug.DrawRay(ray.origin, ray.direction * 3);
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        if (Physics.Raycast(ray, out RaycastHit hit, 5))
         {
-            targetPos = hit.point;
+            // Setup the positions of feet
+            startingPos = transform.position;
+            startingRot = transform.rotation;
 
+            targetPos = hit.point;
             targetRot = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+
+            timeCount = 0;
+
+            footHasMoved = true;
+
+            return true;
         }
+        return false;
     }
 }
