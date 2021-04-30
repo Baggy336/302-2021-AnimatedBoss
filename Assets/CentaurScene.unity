@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &100956133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3741492744652552241, guid: 16c61460fa2cfee4aa96a1f7feea9d9e, type: 3}
+  m_PrefabInstance: {fileID: 3741492744551600084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &564738826 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3741492744021488862, guid: 16c61460fa2cfee4aa96a1f7feea9d9e, type: 3}
@@ -147,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftLeg: {fileID: 1658902129}
   rightLeg: {fileID: 1534150152}
+  leftArm: {fileID: 100956133}
+  rightArm: {fileID: 1481339784}
   moveSpeed: 3
 --- !u!1 &798607602
 GameObject:
@@ -324,6 +331,11 @@ Transform:
   m_Father: {fileID: 1512965134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1481339784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3741492743348190300, guid: 16c61460fa2cfee4aa96a1f7feea9d9e, type: 3}
+  m_PrefabInstance: {fileID: 3741492744551600084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1502881314
 GameObject:
   m_ObjectHideFlags: 0

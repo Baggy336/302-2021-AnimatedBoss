@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform rightLeg;
 
+    public Transform leftArm;
+
+    public Transform rightArm;
+
     private Vector3 velocity;
 
     public float moveSpeed = 3;
@@ -25,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Walk();
-        AnimateLegs();
+        AnimateLimbs();
     }
     void Walk()
     {
@@ -46,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         pawn.SimpleMove(velocity * moveSpeed);
     }
 
-    void AnimateLegs()
+    void AnimateLimbs()
     {
         float degrees = 45;
 
@@ -68,5 +72,8 @@ public class PlayerMovement : MonoBehaviour
 
         leftLeg.localRotation = AnimMath.Slide(leftLeg.localRotation, Quaternion.AngleAxis(wiggle, axis), .001f);
         rightLeg.localRotation = AnimMath.Slide(rightLeg.localRotation, Quaternion.AngleAxis(-wiggle, axis), .001f);
+
+        leftArm.localRotation = AnimMath.Slide(leftArm.localRotation, Quaternion.AngleAxis(-wiggle, axis), .001f);
+        rightArm.localRotation = AnimMath.Slide(rightArm.localRotation, Quaternion.AngleAxis(wiggle, axis), .001f);
     }
 }
