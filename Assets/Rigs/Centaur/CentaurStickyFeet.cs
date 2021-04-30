@@ -6,6 +6,8 @@ public class CentaurStickyFeet : MonoBehaviour
 {
     public Transform stepLead;
 
+    public Transform player;
+
     public AnimationCurve tween;
 
     private Vector3 startingPos;
@@ -16,7 +18,7 @@ public class CentaurStickyFeet : MonoBehaviour
 
     private Quaternion targetRot;
 
-    public float offset;
+    public bool hasOffset = false;
 
     public float animLength = .5f;
 
@@ -38,6 +40,11 @@ public class CentaurStickyFeet : MonoBehaviour
 
     private void Start()
     {
+        if (hasOffset)
+        {
+            stepDis = 2;
+        }
+
         startingPos = stepLead.position;
         startingRot = transform.localRotation;
 
@@ -49,6 +56,7 @@ public class CentaurStickyFeet : MonoBehaviour
     void Update()
     {
         DoAStep();
+        RotateFeet();
 
         if (isFootAnimating)
         {
@@ -106,5 +114,21 @@ public class CentaurStickyFeet : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    void RotateFeet()
+    {
+        Vector3 vToPlayer = player.position - transform.position;
+
+        Quaternion targetRot = Quaternion.LookRotation(vToPlayer, Vector3.up);
+
+        Quaternion previousRot = transform.rotation;
+        transform.rotation = targetRot;
+        Vector3 eulerAngles = transform.localEulerAngles;
+
+        eulerAngles.x = 90;
+
+        transform.rotation = previousRot;
+        transform.localRotation = AnimMath.Slide(transform.localRotation, Quaternion.Euler(eulerAngles), .001f);
     }
 }

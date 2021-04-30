@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLead: {fileID: 328182384}
+  player: {fileID: 0}
   tween:
     serializedVersion: 2
     m_Curve:
@@ -199,9 +200,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  offset: 0
+  hasOffset: 1
   animLength: 0.5
   stepDis: 1.5
+  footHasMoved: 0
 --- !u!1 &314179337
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLead: {fileID: 1538276862}
+  player: {fileID: 0}
   tween:
     serializedVersion: 2
     m_Curve:
@@ -638,9 +641,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  offset: 1
+  hasOffset: 0
   animLength: 0.5
   stepDis: 1.5
+  footHasMoved: 0
 --- !u!1 &1224160245
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLead: {fileID: 1403626202}
+  player: {fileID: 0}
   tween:
     serializedVersion: 2
     m_Curve:
@@ -1008,9 +1013,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  offset: 0
+  hasOffset: 1
   animLength: 0.5
   stepDis: 1.5
+  footHasMoved: 0
 --- !u!1 &1847141568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepLead: {fileID: 33140180}
+  player: {fileID: 0}
   tween:
     serializedVersion: 2
     m_Curve:
@@ -1174,9 +1181,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  offset: 1
+  hasOffset: 0
   animLength: 0.5
   stepDis: 1.5
+  footHasMoved: 0
 --- !u!1 &2012486353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,6 +1803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1b906db89b33c40b87f0bc0ddff931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  feet: []
   groundTargets: {fileID: 5740387184946146779}
   moveSpeed: 2
   stepScale: {x: 1, y: 1, z: 1}
